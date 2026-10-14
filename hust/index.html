@@ -216,13 +216,13 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 @media (prefers-reduced-motion:reduce){.info-r summary,.info-r .body,.info-r .acc-in{transition:none!important}}
 /* complete the look */
 .look{display:grid;grid-template-columns:1fr 1fr;background:#fff;margin:36px 6px 0}
-.look-img{aspect-ratio:5/4;align-self:start;position:relative;overflow:hidden}
+.look-img{aspect-ratio:5/4;position:relative;overflow:hidden}
 .look-img{background:#f3f1ed}
 .look-img span{font-size:13px;color:var(--grey);letter-spacing:.04em}
 .look-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 58%}
-.look-r{display:flex;flex-direction:column;justify-content:center;padding:64px 0 64px 4vw;min-width:0}
+.look-r{display:flex;flex-direction:column;justify-content:space-between;padding:0 0 0 4vw;min-width:0}
 .look-h{display:flex;justify-content:space-between;align-items:flex-end;padding-right:4vw;margin-bottom:44px}
-.look-h h2{font:500 52px/1 Figtree,sans-serif;letter-spacing:-.025em;margin-bottom:10px}
+.look-h h2{font:500 52px/.8 Figtree,sans-serif;letter-spacing:-.025em;margin-bottom:16px}
 .look-h .link{margin-top:0;font-size:14px}
 .look-nav{display:flex;gap:18px}
 .look-nav button{padding:6px}
@@ -230,7 +230,7 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 .look-row{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;padding-right:4vw}
 .look-row::-webkit-scrollbar{display:none}
 .lk{flex:0 0 calc((100% - 12px)/2.4);scroll-snap-align:start}
-.lk-img{position:relative;aspect-ratio:4/5;background:#ebe9e4;overflow:hidden}
+.lk-img{position:relative;aspect-ratio:1/1;background:#ebe9e4;overflow:hidden}
 .lk-img img{width:100%;height:100%;object-fit:cover;display:block}
 .lk-bm{position:absolute;top:14px;right:14px}
 .lk-t{padding:14px 4px 0;font-size:13.5px;line-height:1.45}
@@ -242,7 +242,7 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 @media (max-width:1000px){
   .look{grid-template-columns:1fr;margin:24px 0 0}
   .look-img{aspect-ratio:5/4}
-  .look-r{padding:44px 0 44px 16px}
+  .look-r{padding:44px 0 44px 16px;justify-content:flex-start}
   .look-h{padding-right:16px;margin-bottom:26px}
   .look-h h2{font-size:36px}
   .look-nav{display:none}
