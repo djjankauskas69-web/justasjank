@@ -85,6 +85,10 @@ section{scroll-margin-top:24px}
 .project:last-child{border-bottom:0}
 .pnum{font-family:var(--f-mono);font-size:13px;color:var(--faint);align-self:start;padding-top:6px}
 .project h3{font-family:var(--f-display);font-weight:700;font-size:25px;letter-spacing:-.02em;margin:0;line-height:1.2}
+.sample{display:inline-flex;align-items:center;gap:6px;margin:0 0 10px;font:600 10.5px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;padding:5px 9px 5px 8px;border-radius:999px;background:var(--ink);color:var(--on-ink)}
+.sample::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.project.is-sample .visual{position:relative}
+.v-sample{position:absolute;left:10px;top:10px;font:600 10px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;padding:5px 8px;border-radius:4px;background:var(--ink);color:var(--on-ink)}
 .ptype{margin:2px 0 8px;font-size:15px}
 .project p{margin:0 0 12px;color:var(--muted);font-size:14.5px;max-width:52ch}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
@@ -367,16 +371,17 @@ html,body{overflow-x:clip}
           <a class="visual v-shot v-nutra-shot" href="https://nutravalid.com" target="_blank" rel="noopener" aria-label="Open nutravalid.com"><img src="nutravalid.jpg" alt="NutraValid store homepage with the All-in-1 supplement bottle" width="1400" height="727" loading="lazy"><span class="live">nutravalid.com ↗</span></a>
         </article>
 
-        <article class="project">
+        <article class="project is-sample">
           <div class="pnum">03</div>
           <div>
+            <span class="sample">Sample</span>
             <h3>HUST Design product page</h3>
             <div class="ptype">Redesign concept · E-commerce product page</div>
             <p>Redesigned the product page of a Lithuanian design-furniture store as a concept, using a real product and its real data. A full-width photo gallery sits beside a focused buy panel with colour and size options, followed by a specifications section, a collection carousel and related products. Built as a responsive page that works on desktop and mobile.</p>
             <div class="tags"><span class="tag">UI/UX</span><span class="tag">E-commerce</span><span class="tag">Product Page</span><span class="tag">Redesign</span><span class="tag">HTML/CSS</span></div>
             <div class="plinks"><a href="/hust/" target="_blank" rel="noopener">View concept ↗</a></div>
           </div>
-          <a class="visual v-shot" href="/hust/" target="_blank" rel="noopener" aria-label="Open the HUST Design product page concept"><img src="hust.jpg" alt="Product page concept for the BUDDHA coffee table: photo gallery on the left, price and options on the right" width="1400" height="744" loading="lazy"><span class="live">View concept ↗</span></a>
+          <a class="visual v-shot" href="/hust/" target="_blank" rel="noopener" aria-label="Open the HUST Design product page concept"><img src="hust.jpg" alt="Product page concept for the BUDDHA coffee table: photo gallery on the left, price and options on the right" width="1400" height="744" loading="lazy"><span class="v-sample" aria-hidden="true">Sample · Concept</span><span class="live">View concept ↗</span></a>
         </article>
       </section>
 
