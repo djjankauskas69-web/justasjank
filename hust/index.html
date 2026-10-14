@@ -192,6 +192,7 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 .lead{font:400 30px/1.3 Figtree,sans-serif;letter-spacing:-.015em;max-width:46ch}
 .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
 .feats b{display:block;font-weight:500;font-size:15px;margin-top:14px}
+.feats span{display:block;font-size:14px;color:#4a4946;margin-top:2px}
 .showroom{display:flex;align-items:center;gap:10px;margin-top:56px;font-size:15px}
 .info-r details{border-top:0;border-bottom:1px solid #222}
 .info-r details:last-of-type{border-bottom:1px solid #222}
@@ -263,7 +264,8 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
   .info-in{grid-template-columns:1fr;gap:48px}
   .lead{font-size:23px}
   .feats{grid-template-columns:1fr;gap:18px;margin-top:36px}
-  .feats div{display:flex;gap:14px;align-items:center}
+  .feats div{display:grid;grid-template-columns:28px 1fr;column-gap:14px;align-items:center}
+  .feats svg{grid-row:span 2}
   .feats b{margin-top:0}
   .related{padding:0 0 72px;margin-top:40px}
   .rel-row{grid-template-columns:repeat(2,1fr);padding:0 16px;gap:24px 10px}
@@ -403,13 +405,12 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 <section class="info" id="info">
   <div class="info-in">
     <div class="info-l">
-      <p class="lead">BUDDHA išsiskiria iš cilindrinių elementų suformuotu pagrindu, kuris subtiliai prilaiko stalviršį ir kuria išraiškingą, skulptūrišką siluetą. Apvali forma ir ritmiški vertikalūs elementai suteikia staliukui lengvumo bei vizualinės dinamikos.</p>
+      <p class="lead">Skulptūriškas pagrindas iš ritmiškai išdėstytų cilindrų, kuris subtiliai prilaiko apvalų stalviršį.</p>
       <div class="feats">
-        <div><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#222" stroke-width="1.2" stroke-linecap="round"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l4.5 3"/></svg><b>Pristatymas per 5–6 savaites</b></div>
-        <div><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#222" stroke-width="1.2" stroke-linecap="round"><circle cx="11" cy="16" r="6"/><circle cx="21" cy="16" r="6"/></svg><b>Du dydžiai: Ø 79 ir Ø 60 cm</b></div>
-        <div><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#222" stroke-width="1.2" stroke-linecap="round"><path d="M16 4c-5 5-8 9-8 13a8 8 0 0 0 16 0c0-4-3-8-8-13z"/><path d="M16 12v14"/></svg><b>Trys medienos atspalviai</b></div>
+        <div><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#222" stroke-width="1.2" stroke-linecap="round"><circle cx="11" cy="16" r="6"/><circle cx="21" cy="16" r="6"/></svg><b>Du dydžiai</b><span>Ø 79 × 40 cm ir Ø 60 × 45 cm</span></div>
+        <div><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#222" stroke-width="1.2" stroke-linecap="round"><circle cx="9" cy="16" r="4"/><circle cx="16" cy="16" r="4"/><circle cx="23" cy="16" r="4"/></svg><b>Trys spalvos</b><span>Balinto medžio, juoda, ruda</span></div>
+        <div><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="#222" stroke-width="1.2" stroke-linecap="round"><path d="M16 4c-5 5-8 9-8 13a8 8 0 0 0 16 0c0-4-3-8-8-13z"/><path d="M16 12v14"/></svg><b>Medienos apdaila</b><span>Ryškus natūralus medienos raštas</span></div>
       </div>
-      <div class="showroom"><span class="dot"></span>Galima apžiūrėti HUST salone Vilniuje</div>
     </div>
     <div class="info-r">
       <details id="acc-about"><summary>Apie produktą<i><svg width="8" height="13" viewBox="0 0 8 13"><path d="m1 1 5.5 5.5L1 12" fill="none" stroke="#222" stroke-width="1.2"/></svg></i></summary><div class="body">BUDDHA harmoningai dera įvairiuose interjeruose, suteikdamas modernumo ir elegancijos. Skulptūriškas dizainas su cilindrinių formų pagrindu ir apvali, harmoningą kompoziciją kurianti forma.</div></details>
@@ -444,20 +445,20 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 </section>
 
 <section class="related">
-  <div class="rel-head"><h2>Jus gali sudominti</h2><p>Atrinkome kūrinius, kurie dera su BUDDHA.</p></div>
+  <div class="rel-head"><h2>Jums gali patikti</h2><p>Svetainės baldai, kurie dera su BUDDHA.</p></div>
   <div class="rel-row" id="relRow">
-    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2168-product_main_2x/ceylon.jpg?v=1788857200" alt="Ceylon kavos staliukas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
-      <div class="rc-t"><b>Ceylon</b><p>Ceylon kavos staliukas iš BAMBOO kolekcijos su skulptūrišku cilindrų pagrindu</p><strong>622 €</strong><div class="rc-o"><span class="rc-sw"><i style="background:#232322" title="Juoda"></i><i style="background:#dcc7a8" title="Balinto medžio"></i><i style="background:#7a5236" title="Ruda"></i></span><em>+ 2 dydžiai</em></div></div></a>
-    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2229-product_main_2x/guadua.jpg?v=1788857234" alt="Guadua kavos staliukas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
-      <div class="rc-t"><b>Guadua</b><p>Guadua kavos staliukas su pusiau atvira, skulptūriška konstrukcija</p><strong>593 €</strong><div class="rc-o"><span class="rc-sw"><i style="background:#232322" title="Juoda"></i><i style="background:#dcc7a8" title="Balinto medžio"></i><i style="background:#7a5236" title="Ruda"></i></span><em>+ 2 dydžiai</em></div></div></a>
-    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2174-product_main_2x/dahlia.jpg?v=1788857204" alt="Dahlia kavos staliukas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
-      <div class="rc-t"><b>Dahlia</b><p>Dahlia ovalus kavos staliukas, JOLY DESIGN STUDIO, 80 × 55 cm</p><strong>837 €</strong><div class="rc-o"><span class="rc-sw"><i style="background:#232322" title="Juoda"></i><i style="background:#9a9893" title="Pilka"></i></span></div></div></a>
-    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2143-product_main_2x/carry.jpg?v=1788857179" alt="Carry kavos staliukas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
-      <div class="rc-t"><b>Carry</b><p>Carry kavos staliukas su plonu metaliniu rėmu, BÖTTCHER & KAYSER</p><strong>479 €</strong><div class="rc-o"><span class="rc-sw"><i style="background:#232322" title="Juoda"></i><i style="background:#dcc7a8" title="Balinto medžio"></i><i style="background:#7a5236" title="Ruda"></i><i style="background:#9a9893" title="Pilka"></i></span><em>+ 4 dydžiai</em></div></div></a>
-    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2134-product_main_2x/carat.jpg?v=1788857174" alt="Carat kavos staliukas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
-      <div class="rc-t"><b>Carat</b><p>Carat minimalistinis kavos staliukas, BÖTTCHER & KAYSER</p><strong>421 €</strong><div class="rc-o"><span class="rc-sw"><i style="background:#232322" title="Juoda"></i><i style="background:#f4f2ee" title="Balta"></i></span><em>+ 4 dydžiai</em></div></div></a>
-    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2235-product_main_2x/iris.jpg?v=1788857238" alt="Iris kavos staliukas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
-      <div class="rc-t"><b>Iris</b><p>Iris kavos staliukas subtilios geometrinės formos, JOLY DESIGN STUDIO</p><strong>382 €</strong><div class="rc-o"><span class="rc-sw"><i style="background:#232322" title="Juoda"></i><i style="background:#9a9893" title="Pilka"></i></span></div></div></a>
+    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2292-product_main_2x/alps.jpg?v=1788857298" alt="Alps – sofa" loading="lazy" onerror="this.style.visibility='hidden'"></div>
+      <div class="rc-t"><b>Alps</b><p>Sofa. Didelė modulinė sofa, tampanti pagrindiniu kambario akcentu</p><strong>nuo 2 190 €</strong><div class="rc-o"><em>Konfigūruojama</em></div></div></a>
+    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2477-product_main_2x/alvar.jpg?v=1788857378" alt="Alvar – sofa" loading="lazy" onerror="this.style.visibility='hidden'"></div>
+      <div class="rc-t"><b>Alvar</b><p>Sofa. Išskirtinis dizainas ir maksimalus jaukumas</p><strong>nuo 2 256 €</strong><div class="rc-o"><em>Konfigūruojama</em></div></div></a>
+    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2296-product_main_2x/aspen.jpg?v=1788857300" alt="Aspen – sofa" loading="lazy" onerror="this.style.visibility='hidden'"></div>
+      <div class="rc-t"><b>Aspen</b><p>Sofa. Santūri elegancija ir kasdienis komfortas</p><strong>nuo 2 398 €</strong><div class="rc-o"><em>Konfigūruojama</em></div></div></a>
+    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2398-product_main_2x/bjorn.jpg?v=1788857343" alt="Bjorn – krėslas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
+      <div class="rc-t"><b>Bjorn</b><p>Krėslas. Skulptūriškas krėslas minimalistinio charakterio</p><strong>nuo 772 €</strong><div class="rc-o"><em>Konfigūruojama</em></div></div></a>
+    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2406-product_main_2x/dune.jpg?v=1788857346" alt="Dune – krėslas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
+      <div class="rc-t"><b>Dune</b><p>Krėslas. Ian Archer SHELL baldų šeimos papildymas</p><strong>nuo 842 €</strong><div class="rc-o"><em>Konfigūruojama</em></div></div></a>
+    <a href="#" class="rc"><div class="rc-img"><img src="https://hustdesign.com/2117-product_main_2x/jana.jpg?v=1788857169" alt="Jana – pufas" loading="lazy" onerror="this.style.visibility='hidden'"></div>
+      <div class="rc-t"><b>Jana</b><p>Pufas. Minimalistinis dizainas, komfortas ir funkcionalumas</p><strong>nuo 151 €</strong><div class="rc-o"><em>Konfigūruojama</em></div></div></a>
   </div>
 </section>
 
