@@ -195,11 +195,16 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 .showroom{display:flex;align-items:center;gap:10px;margin-top:56px;font-size:15px}
 .info-r details{border-top:0;border-bottom:1px solid #222}
 .info-r details:last-of-type{border-bottom:1px solid #222}
-.info-r summary{font-size:15px;letter-spacing:0;padding:18px 6px}
-.info-r summary i svg{transition:transform .25s}
+.info-r summary{font-size:15px;letter-spacing:0;padding:18px 6px;transition:padding .35s cubic-bezier(.2,.7,.2,1),opacity .25s}
+.info-r summary:hover{padding-left:12px}
+.info-r details[open] summary{padding-left:12px}
+.info-r summary i svg{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .info-r details[open] summary i{transform:none}
 .info-r details[open] summary i svg{transform:rotate(90deg)}
-.info-r .body{padding:0 6px 22px}
+.info-r .body{padding:0 12px 22px;overflow:hidden}
+.info-r .body > *{transition:opacity .4s ease,transform .45s cubic-bezier(.2,.7,.2,1)}
+.info-r details.closing .body > *,.info-r details.opening .body > *{opacity:0;transform:translateY(-6px)}
+@media (prefers-reduced-motion:reduce){.info-r summary,.info-r .body,.info-r .body > *{transition:none!important}}
 /* complete the look */
 .look{display:grid;grid-template-columns:1fr 1fr;background:#fff;margin:36px 6px 0}
 .look-img{min-height:640px;position:relative;overflow:hidden}
@@ -499,7 +504,31 @@ const mm=document.getElementById('mm');
 mm.innerHTML=Object.values(CATS).map(c=>`<details><summary>${c.t} <i>+</i></summary><ul class="m-list">${subList(c)}</ul></details>`).join('')+'<a href="#">HUST galerija</a><a href="#">Katalogas</a><a href="#">Apie mus</a><a href="#">Paskyra</a>';
 document.getElementById('mobBtn').addEventListener('click',e=>{e.preventDefault();const o=mm.classList.toggle('open');e.target.textContent=o?'Uždaryti':'Meniu';e.target.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
 function lkGo(d){const r=document.getElementById('lkRow'),c=r.querySelector('.lk');r.scrollBy({left:d*(c.offsetWidth+6),behavior:'smooth'})}
-function openAcc(id){document.querySelectorAll('.info-r details').forEach(d=>d.open=d.id===id)}
+// smooth accordion
+const accs=[...document.querySelectorAll('.info-r details')];
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function accSet(d,open){
+  if(d._anim){d._anim.cancel();}
+  const b=d.querySelector('.body');
+  if(rm){d.open=open;return}
+  if(open){
+    d.open=true; d.classList.add('opening');
+    const h=b.scrollHeight;
+    requestAnimationFrame(()=>d.classList.remove('opening'));
+    d._anim=b.animate([{height:'0px'},{height:h+'px'}],{duration:420,easing:'cubic-bezier(.2,.7,.2,1)'});
+    d._anim.onfinish=()=>{d._anim=null};
+  }else{
+    const h=b.offsetHeight; d.classList.add('closing');
+    d._anim=b.animate([{height:h+'px'},{height:'0px'}],{duration:320,easing:'cubic-bezier(.4,0,.2,1)'});
+    d._anim.onfinish=()=>{d.open=false;d.classList.remove('closing');d._anim=null};
+  }
+}
+accs.forEach(d=>d.querySelector('summary').addEventListener('click',e=>{
+  e.preventDefault(); const willOpen=!d.open||d.classList.contains('closing');
+  if(willOpen) accs.forEach(o=>{if(o!==d&&o.open)accSet(o,false)});
+  accSet(d,willOpen);
+}));
+function openAcc(id){accs.forEach(d=>{if(d.id===id){if(!d.open)accSet(d,true)}else if(d.open)accSet(d,false)})}
 (function(){const c=document.getElementById('cc');const u=()=>c.toggleAttribute('data-z',c.textContent==='0');u();new MutationObserver(u).observe(c,{childList:true,characterData:true,subtree:true})})();
 </script>
 </body>
