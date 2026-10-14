@@ -23,7 +23,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 :focus-visible{outline:1px solid var(--ink);outline-offset:4px}
 
 /* header */
-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;transition:background-color .35s ease,backdrop-filter .35s ease,border-color .35s ease}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;transition:background-color .35s ease,backdrop-filter .35s ease,border-color .35s ease,transform .4s cubic-bezier(.2,.7,.2,1)}
+header.hid{transform:translateY(-100%)}
+.panel{transition:top .4s cubic-bezier(.2,.7,.2,1),max-height .4s cubic-bezier(.2,.7,.2,1)}
+body.hdr-off .panel{top:0;max-height:100vh}
 header.scrolled{background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(160%) blur(14px);backdrop-filter:saturate(160%) blur(14px);border-bottom-color:rgba(220,218,212,.6)}
 .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:52px;padding:0 24px}
 .nav-l,.nav-r{display:flex;align-items:center;gap:24px;font:400 14px/1 Figtree,sans-serif;letter-spacing:-.005em;white-space:nowrap}
@@ -571,7 +574,13 @@ accs.forEach(d=>d.querySelector('summary').addEventListener('click',e=>{
 }));
 function openAcc(id){accs.forEach(d=>{if(d.id===id){if(!d.open)accSet(d,true)}else if(d.open)accSet(d,false)})}
 (function(){const c=document.getElementById('cc');const u=()=>c.toggleAttribute('data-z',c.textContent==='0');u();new MutationObserver(u).observe(c,{childList:true,characterData:true,subtree:true})})();
-(function(){const h=document.querySelector('header');const f=()=>h.classList.toggle('scrolled',scrollY>8);f();addEventListener('scroll',f,{passive:true})})();
+(function(){const h=document.querySelector('header');let last=scrollY,tick=false;
+const f=()=>{const y=scrollY;h.classList.toggle('scrolled',y>8);
+ const menuOpen=document.getElementById('mm')?.classList.contains('open');
+ if(!menuOpen){ if(y>120&&y>last+4){h.classList.add('hid');document.body.classList.add('hdr-off')}
+   else if(y<last-4||y<=120){h.classList.remove('hid');document.body.classList.remove('hdr-off')} }
+ last=y;tick=false};
+f();addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(f)}},{passive:true})})();
 </script>
 </body>
 </html>
