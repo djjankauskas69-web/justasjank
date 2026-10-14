@@ -108,7 +108,7 @@ header{position:sticky}
 .dimrow small{display:block;font-size:12px;color:var(--grey);line-height:1.2}
 .dimrow b{font-weight:400;font-size:15px}
 .add{display:flex;justify-content:space-between;align-items:center;padding:0 20px}
-.row2{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row2{display:flex;justify-content:space-between;padding:20px 0 16px;border-bottom:1px solid var(--line);font-size:14px}
 .row2 span:first-child{color:var(--grey)}
 .deliv{display:flex;gap:14px;padding:20px 0 0;font-size:14px}
 .deliv small{display:block;color:var(--grey);font-size:13px}
@@ -154,9 +154,9 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 .buybox{position:sticky;top:104px;align-self:start;background:var(--panel);padding:36px}
 .price{font:500 22px/1 Figtree,sans-serif}
 .vat{font-size:13px;color:var(--grey);margin-top:6px}
-.opt{border-top:1px solid var(--line);padding:22px 0;margin-top:26px}
+.opt{border-top:1px solid var(--line);padding:22px 0;margin-top:28px}
 .opt+.opt{margin-top:0}
-.opt-h{display:flex;justify-content:space-between;font-size:13px;letter-spacing:.06em;margin-bottom:14px}
+.opt-h{display:flex;justify-content:space-between;font-size:14px;margin-bottom:14px}
 .opt-h em{font-style:normal;color:var(--grey)}
 .swatches{display:flex;gap:14px}
 .sw{width:36px;height:36px;border-radius:50%;position:relative}
@@ -165,10 +165,10 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 .sizes{display:flex;gap:10px;flex-wrap:wrap}
 .size{border:1px solid var(--line);padding:10px 18px;font-size:14px}
 .size[aria-pressed=true]{border-color:var(--ink)}
-.buy{display:grid;grid-template-columns:100px 1fr 54px;gap:8px;margin-top:6px}
+.buy{display:grid;grid-template-columns:100px 1fr 54px;gap:8px;padding-top:22px;border-top:1px solid var(--line)}
 .qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);padding:0 12px;height:56px}
 .qty button{font-size:18px;width:22px}
-.add{background:var(--ink);color:#fff;height:56px;font-size:13px;letter-spacing:.14em}
+.add{background:var(--ink);color:#fff;height:56px;font-size:15px;font-weight:500}
 .add:hover{background:#000}
 .wish{border:1px solid var(--line);display:grid;place-items:center;height:56px}
 .wish[aria-pressed=true] path{fill:var(--ink)}
@@ -309,7 +309,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px;display:flex;justify-c
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--bg);border-top:1px solid var(--line);padding:10px 16px;gap:14px;align-items:center}
   .mbar div{flex:1;font-size:13px;line-height:1.3}
   .mbar b{display:block;font:500 17px Figtree,sans-serif}
-  .mbar button{background:var(--ink);color:#fff;height:50px;padding:0 24px;font-size:13px;letter-spacing:.12em}
+  .mbar button{background:var(--ink);color:#fff;height:50px;padding:0 24px;font-size:15px;font-weight:500}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -348,12 +348,8 @@ footer{border-top:1px solid var(--line);padding:30px 32px;display:flex;justify-c
     <div class="p-price" id="price">751,00 €</div>
     <div class="vat">Kaina su PVM</div>
 
-    <p class="p-short">Kavos staliukas su skulptūrišku cilindrinių formų pagrindu. <a href="#info" onclick="openAcc('acc-about')">Plačiau</a></p>
+    <p class="p-short">Skulptūriškas pagrindas iš cilindrinių elementų ir apvalus stalviršis. <a href="#info" onclick="openAcc('acc-about')">Plačiau</a></p>
 
-    <div class="dimrow">
-      <div><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.3"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg></span><span><small>Aukštis</small><b id="hgt">40 cm</b></span></div>
-      <div><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.3"><path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"/></svg></span><span><small>Skersmuo</small><b id="dia">79 cm</b></span></div>
-    </div>
 
     <div class="opt">
       <div class="opt-h">Spalva <em id="cname">Balinto medžio</em></div>
@@ -364,7 +360,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px;display:flex;justify-c
       </div>
     </div>
     <div class="opt">
-      <div class="opt-h">Dydis <em>Ø × aukštis, cm</em></div>
+      <div class="opt-h">Dydis <em id="sname">Ø 79 × 40 cm</em></div>
       <div class="sizes" role="group" aria-label="Dydis">
         <button class="size" aria-pressed="true" data-d="79 cm" data-h="40 cm">Ø 79 × 40</button>
         <button class="size" aria-pressed="false" data-d="60 cm" data-h="45 cm">Ø 60 × 45</button>
@@ -373,10 +369,10 @@ footer{border-top:1px solid var(--line);padding:30px 32px;display:flex;justify-c
 
     <div class="buy" style="grid-template-columns:100px 1fr">
       <div class="qty"><button aria-label="Mažiau" onclick="q(-1)">−</button><span id="qv">1</span><button aria-label="Daugiau" onclick="q(1)">+</button></div>
-      <button class="add" id="add"><span id="addt">Į KREPŠELĮ</span><span id="addp">751,00 €</span></button>
+      <button class="add" id="add"><span id="addt">Į krepšelį</span><span id="addp">751,00 €</span></button>
     </div>
 
-    <div class="row2"><span>Fizinis prieinamumas salonuose</span><span><span class="dot" style="display:inline-block"></span>Vilnius</span></div>
+    <div class="row2"><span>Galima apžiūrėti salone</span><span><span class="dot" style="display:inline-block"></span>Vilnius</span></div>
     <div class="deliv"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.2" style="flex:none"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><span>Pristatymo terminas: 5–6 savaitės<small>Baldas gaminamas užsakius</small></span></div>
 
   </aside>
@@ -445,7 +441,7 @@ footer{border-top:1px solid var(--line);padding:30px 32px;display:flex;justify-c
 
 <footer><span>HUST</span><span>Redizaino demonstracinė versija</span></footer>
 
-<div class="mbar"><div>Buddha<b id="mprice">751,00 €</b></div><button onclick="document.getElementById('add').click()">Į KREPŠELĮ</button></div>
+<div class="mbar"><div>Buddha<b id="mprice">751,00 €</b></div><button onclick="document.getElementById('add').click()">Į krepšelį</button></div>
 
 <div class="lb" id="lb" role="dialog" aria-label="Nuotraukų peržiūra">
   <button onclick="step(-1)" aria-label="Ankstesnė">‹</button>
@@ -470,10 +466,10 @@ g.addEventListener('scroll',()=>{document.getElementById('count').textContent=(M
 
 function pick(sel,cb){document.querySelectorAll(sel).forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll(sel).forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');cb(b)}))}
 pick('.sw',b=>document.getElementById('cname').textContent=b.dataset.n);
-pick('.size',b=>{document.getElementById('dia').textContent=b.dataset.d;document.getElementById('hgt').textContent=b.dataset.h});
+pick('.size',b=>{document.getElementById('sname').textContent=b.textContent+' cm'});
 let n=1;function q(d){n=Math.max(1,n+d);document.getElementById('qv').textContent=n}
 const add=document.getElementById('add');
-add.addEventListener('click',()=>{const c=document.getElementById('cc');c.textContent=+c.textContent+n;const t=document.getElementById('addt');t.textContent='PRIDĖTA';setTimeout(()=>t.textContent='Į KREPŠELĮ',2000)});
+add.addEventListener('click',()=>{const c=document.getElementById('cc');c.textContent=+c.textContent+n;const t=document.getElementById('addt');t.textContent='Pridėta';setTimeout(()=>t.textContent='Į krepšelį',2000)});
 
 // ---- mega menu (data from hustdesign.com) ----
 const CATS={
