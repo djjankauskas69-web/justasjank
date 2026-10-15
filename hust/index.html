@@ -343,9 +343,23 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
   .mbar button{background:var(--ink);color:#fff;height:50px;padding:0 24px;font-size:15px;font-weight:500}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+#ld{position:fixed;inset:0;z-index:9999;background:#fff;display:grid;place-items:center;animation:ldOut .5s ease 2.5s forwards}
+#ld svg{width:120px;height:120px;overflow:visible}
+#ld .st{fill:none;stroke:#1d1d1b;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:brush .55s cubic-bezier(.65,.02,.3,1) both}
+#ld .b{stroke-width:3.6}
+#ld .h1{stroke-width:1.1;--o:.5}
+#ld .h2{stroke-width:.7;--o:.35}
+#ld .s1{animation-delay:.35s}#ld .s2{animation-delay:.8s}#ld .s3{animation-delay:1.25s;animation-duration:.45s}
+#ld .h1,#ld .h2{animation-duration:.6s}
+@keyframes brush{0%{opacity:0;stroke-dashoffset:1}2%{opacity:var(--o,1)}100%{opacity:var(--o,1);stroke-dashoffset:0}}
+@keyframes ldOut{to{opacity:0;visibility:hidden}}
+body.ld-on{overflow:hidden}
+@media (prefers-reduced-motion:reduce){#ld{display:none}}
 </style>
 </head>
-<body>
+<body class="ld-on">
+<div id="ld" aria-hidden="true"><svg viewBox="0 0 40 40"><defs><filter id="brushF" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.3"/></filter></defs><g filter="url(#brushF)"><path class="st b s1" pathLength="1" d="M11.2 6.5 C11 14 11.4 25 11.1 33.8"/><path class="st h1 s1" pathLength="1" d="M12.7 7.3 C12.5 15 12.8 25 12.5 33"/><path class="st h2 s1" pathLength="1" d="M9.8 8 C9.7 16 9.9 25 9.8 32.6"/><path class="st b s2" pathLength="1" d="M28.9 6.2 C29.1 14 28.7 25 29 33.6"/><path class="st h1 s2" pathLength="1" d="M27.4 7 C27.6 15 27.3 25 27.5 32.8"/><path class="st h2 s2" pathLength="1" d="M30.3 7.6 C30.4 15 30.2 25 30.4 32.4"/><path class="st b s3" pathLength="1" d="M11.4 20.6 C17 19.6 23 20.4 28.8 19.8"/><path class="st h1 s3" pathLength="1" d="M12.2 22 C17.5 21.2 23 21.7 28 21.1"/><path class="st h2 s3" pathLength="1" d="M12.8 19.2 C18 18.6 23 19 27.8 18.6"/></g></svg></div>
 
 <header>
   <div class="nav">
@@ -582,5 +596,6 @@ const f=()=>{const y=scrollY;h.classList.toggle('scrolled',y>8);
  last=y;tick=false};
 f();addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(f)}},{passive:true})})();
 </script>
+<script>setTimeout(()=>{document.body.classList.remove("ld-on");const l=document.getElementById("ld");l&&l.remove()},3000)</script>
 </body>
 </html>
