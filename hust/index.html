@@ -344,7 +344,8 @@ details .body{padding:0 0 26px;font-size:15px;color:#4a4946}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
-#ld{position:fixed;inset:0;z-index:9999;background:#fff;display:grid;place-items:center;animation:ldOut .5s ease 2.5s forwards}
+#ld{position:fixed;inset:0;z-index:9999;background:#fff;display:grid;place-items:center;animation:ldOut .4s ease 1.6s forwards}
+#ld.skip{animation:ldOut .25s ease forwards}
 #ld svg{width:84px;height:auto}
 #ld .st{fill:none;stroke:#1d1d1b;stroke-width:20;stroke-linecap:butt;stroke-dasharray:1 1;stroke-dashoffset:1;animation:draw .42s cubic-bezier(.6,0,.3,1) both}
 #ld .x{stroke-width:18.8}#ld .s1{animation-delay:.45s}#ld .s2{animation-delay:.72s;animation-duration:.36s}#ld .s3{animation-delay:.9s}
@@ -356,6 +357,13 @@ body.ld-on{overflow:hidden}
 </head>
 <body class="ld-on">
 <div id="ld" aria-hidden="true"><svg viewBox="0 0 120 132" shape-rendering="geometricPrecision"><path class="st s1" pathLength="1" d="M10 1 V131"/><path class="st s2 x" pathLength="1" d="M10 83.6 L110 47.4"/><path class="st s3" pathLength="1" d="M110 1 V131"/></svg></div>
+<script>(function(){const l=document.getElementById('ld'),b=document.body;let seen=false;
+try{seen=sessionStorage.getItem('hustIntro')==='1';sessionStorage.setItem('hustIntro','1')}catch(e){}
+const done=()=>{b.classList.remove('ld-on');l&&l.remove();['wheel','touchstart','keydown','pointerdown'].forEach(e=>removeEventListener(e,skip))};
+if(seen||!l){done();return}
+const skip=()=>{l.classList.add('skip');setTimeout(done,260)};
+['wheel','touchstart','keydown','pointerdown'].forEach(e=>addEventListener(e,skip,{once:true,passive:true}));
+setTimeout(done,2000)})();</script>
 
 <header>
   <div class="nav">
@@ -592,6 +600,6 @@ const f=()=>{const y=scrollY;h.classList.toggle('scrolled',y>8);
  last=y;tick=false};
 f();addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(f)}},{passive:true})})();
 </script>
-<script>setTimeout(()=>{document.body.classList.remove("ld-on");const l=document.getElementById("ld");l&&l.remove()},3000)</script>
+
 </body>
 </html>
