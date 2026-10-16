@@ -6,6 +6,9 @@
 <title>Justas Jankauskas — E-commerce Specialist</title>
 <meta name="description" content="Justas Jankauskas — e-commerce specialist with 7+ years of hands-on marketplace experience, mostly on Etsy. Product research, listing optimization, pricing and customer experience.">
 <link rel="canonical" href="https://justasjankauskas.com/">
+<link rel="alternate" hreflang="en" href="https://justasjankauskas.com/">
+<link rel="alternate" hreflang="lt" href="https://justasjankauskas.com/lt/">
+<link rel="alternate" hreflang="x-default" href="https://justasjankauskas.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://justasjankauskas.com/">
 <meta property="og:title" content="Justas Jankauskas — E-commerce Specialist">
@@ -46,6 +49,10 @@ a{color:inherit}
 .mono{font-family:var(--f-display);font-weight:800;font-size:28px;letter-spacing:-.04em;text-decoration:none}
 .status{display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.lang{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font:500 12.5px/1 var(--f-mono);letter-spacing:.06em}
+.lang a{padding:7px 12px;border-radius:999px;text-decoration:none;color:var(--muted);transition:color .2s ease,background .2s ease}
+.lang a:hover{color:var(--fg)}
+.lang a[aria-current="page"]{background:var(--ink);color:var(--on-ink)}
 
 /* shell */
 .shell{display:grid;grid-template-columns:150px minmax(0,1fr);gap:40px;margin-top:48px}
@@ -307,6 +314,7 @@ html,body{overflow-x:clip}
 <div class="wrap">
   <header class="top">
     <a class="mono" href="#home" aria-label="Justas Jankauskas, home">JJ</a>
+    <nav class="lang" aria-label="Language"><a href="/" aria-current="page" lang="en">EN</a><a href="/lt/" lang="lt" hreflang="lt">LT</a></nav>
   </header>
 
   <div class="shell">
