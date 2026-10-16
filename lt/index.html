@@ -233,6 +233,7 @@ footer{margin-top:48px;color:var(--faint);font-size:13px;display:flex;justify-co
 .hero > *:nth-child(5){animation-delay:.38s}
 .hero > *:nth-child(6){animation-delay:.46s}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero h1 .w{display:inline-block;white-space:nowrap}
 .hero h1 .ch{display:inline-block;animation:letter .7s cubic-bezier(.2,.7,.2,1) both}
 @keyframes letter{from{opacity:0;transform:translateY(.4em) rotate(4deg)}to{opacity:1;transform:none}}
 
@@ -501,7 +502,7 @@ html,body{overflow-x:clip}
   if(!reduce){
     // split hero name into letters
     var h1=document.querySelector('.hero h1');var txt=h1.textContent;h1.setAttribute('aria-label',txt);h1.textContent='';
-    txt.split('').forEach(function(c,i){var s=document.createElement('span');s.setAttribute('aria-hidden','true');if(c===' '){s.innerHTML='&nbsp;';s.style.display='inline-block'}else{s.className='ch';s.textContent=c;s.style.animationDelay=(0.12+i*0.03)+'s'}h1.appendChild(s)});
+    var n=0,words=txt.split(' ');words.forEach(function(word,wi){var w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');word.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.animationDelay=(0.12+n*0.03)+'s';n++;w.appendChild(s)});h1.appendChild(w);if(wi<words.length-1){h1.appendChild(document.createTextNode(' '));n++}});
 
     // count-up stats
     document.querySelectorAll('.stat b').forEach(function(el){
